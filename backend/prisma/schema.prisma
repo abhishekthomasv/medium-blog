@@ -17,6 +17,7 @@ model User {
   id       String   @id @default(uuid())
   email    String   @unique
   name     String?
+  caption  String?
   password String
   posts    Post[]
 }
@@ -28,4 +29,5 @@ model Post {
   published Boolean  @default(false)
   author    User     @relation(fields: [authorId], references: [id])
   authorId  String
+  date      String
 }
