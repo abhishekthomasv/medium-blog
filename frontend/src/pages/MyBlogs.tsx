@@ -6,7 +6,7 @@ import DNASpiral from "../loaders/DNASpiral"
 
 const MyBlogs = () => {
   const { loading, blogs } = useMyBlogs()
-  const { user, userLoading } = useUser()
+  const {  userLoading } = useUser()
 
   if (userLoading || loading) {
     return (

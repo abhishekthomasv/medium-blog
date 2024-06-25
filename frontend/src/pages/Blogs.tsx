@@ -4,14 +4,13 @@ import BlogCard from '../components/BlogCard'
 import { useBlogs, useUser } from '../hooks'
 import DNASpiral from '../loaders/DNASpiral';
 import { useEffect } from 'react';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { blogData } from '../recoil/atom/blogAtom';
-
 
 const Blogs = () => {
 
-  const {loading, blogs} = useBlogs();
-  const { user,  userLoading } = useUser()
+  const {loading} = useBlogs();
+  const {  userLoading } = useUser()
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
   const posts= useRecoilValue(blogData)
@@ -30,7 +29,6 @@ const Blogs = () => {
         <DNASpiral />
     )
   }
-
 
   function stripHTML(html:any) {
     let doc = new DOMParser().parseFromString(html, "text/html")
